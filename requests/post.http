@@ -1,0 +1,19 @@
+@url=http://localhost:3000/api/v1/post
+@api-type =application/josn
+
+####
+GET {{url}}?limit=2
+
+####
+GET {{url}}/6
+
+#######
+POST {{url}}
+Content-Type: application/json 
+
+{
+    "name" : "Qué es LinkedIn, para qué sirve y cómos funciona",
+    "description" : "LinkedIn ess la red social de los profesionales y si conoces las claves para saber desenvolverte, con el tiempo, seguro que vas a tener muchas puertas abiertas. Esta red social tiene 575 millones de usuarios, 260 millones de ellos activos. De estos, el 40% lo usa a diario. Hay dos formas de crear tu cuenta: de forma gratuita o Premium.\nEl 39% de sus usuarios pagan la mensualidad del servicio Premium, que tiene la cuota más barata en 30 dólares al mes. La versión Premium te permite entre otras cosas, ver quien ha visitado tu perfil, u obtener información privilegiada (como el salario) de ciertas ofertas de empleo en LinkedIn.",
+    "user" : 8
+
+}

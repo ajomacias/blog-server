@@ -1,0 +1,15 @@
+@url=http://localhost:3000/api/v1/user
+@api-type =application/josn
+
+####
+GET {{url}}
+
+#######
+POST {{url}}
+Content-Type: application/json 
+
+{
+    "name" : "Ander",
+    "password" : "holasdsdfsdfsdf"
+
+}

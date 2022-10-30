@@ -1,0 +1,18 @@
+@url=http://localhost:3000/api/v1/comentary
+@api-type =application/josn
+
+####
+GET {{url}}
+
+####
+GET {{url}}/6
+
+#######
+POST {{url}}
+Content-Type: application/json 
+
+{
+  "description" : "muy buena explicacion, podrias hacer una de como tener mas chances en linkedink al encontrar trabajo",
+  "post" : 7,
+  "user" : 9
+}

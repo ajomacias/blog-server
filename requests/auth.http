@@ -1,0 +1,17 @@
+@url=http://localhost:3000/api/v1/auth
+@api-type =application/josn
+
+####
+GET {{url}}
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjo3LCJpYXQiOjE2NjY4MDcxNDIsImV4cCI6MTY2Njg5MzU0Mn0.3KqIwnB7dJ7dJang9peNe_3I036B5On8ra7jeN38WXA
+
+
+#######
+POST {{url}}/logIn
+Content-Type: application/json 
+
+{
+    "name" : "anderk222",
+    "password" : "0981942117tanki"
+
+}
