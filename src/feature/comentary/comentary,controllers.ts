@@ -20,7 +20,7 @@ async function getComments(req: R, res: Res, next: N) {
       where : {
         post : { id : id }
       },
-      relations : { user : { profile : true},  },
+      relations : { user : { profile : true} },
       select: { user: { id: true,name: true, profile : { img : true } } },
      skip : page,
      take : limit 
@@ -87,7 +87,7 @@ async function saveComment(req: R, res: Res, next: N) {
   if(!newComentary?.post || !newComentary?.user )
   return next({ status : 400, message : 'user id aannd post id musst be present' });
 
-  let comentary: Comentary;
+  let comentary: Comentary | null;
 
   try {
     const user = await AppDataSource.manager.findOne(User, {
@@ -121,12 +121,34 @@ async function saveComment(req: R, res: Res, next: N) {
 
     const errors = await validate(comentary);
 
-    console.log(errors)
 
     if (errors.length > 0)
       return next({ status: 400, message: errors.join("\n") });
     
     await AppDataSource.manager.save(comentary);
+
+    comentary = await AppDataSource.manager.findOne(Comentary, {
+      relations : {
+         user : {
+          profile : true
+         }
+      },
+      where : {
+        id : comentary.id
+      },
+      select : {
+        user : {
+          name : true,
+          id : true,
+          profile : {
+            img : true
+          }
+        },
+      
+      }
+
+    })
+
   } catch (err) {
     return next({ status: 500, message: err });
   }
